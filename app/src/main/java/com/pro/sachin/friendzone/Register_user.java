@@ -123,14 +123,14 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
                             String useruid=firebaseAuth.getCurrentUser().getUid();
 
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            DatabaseReference databaseReference = database.getReference(firstname+":"+useruid);
+                            DatabaseReference databaseReference = database.getReference(useruid);
                             databaseReference.child("User_Id").setValue(useruid);
                             databaseReference.child("first_name").setValue(firstname);
                             databaseReference.child("Last_name").setValue(lastname);
                             databaseReference.child("Email").setValue(email);
                             databaseReference.child("Address").setValue(address);
                             databaseReference.child("phone_no").setValue(phone);
-                            startActivity(new Intent(getApplicationContext(), ImageUpload.class));
+                           // startActivity(new Intent(getApplicationContext(), ImageUpload.class));
                            // Intent intent = new Intent(Register_user.this,MainActivity.class);
                            // startActivity(intent);
                             finish();
@@ -142,6 +142,7 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
                         {
                             Toast.makeText(Register_user.this, "Registration Failed",
                                     Toast.LENGTH_SHORT).show();
+                            buttonRegister.setEnabled(true);
                         }
 
                         progressDialog.dismiss();

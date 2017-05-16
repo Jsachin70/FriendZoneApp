@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         videoview.setVideoURI(uri);
         videoview.start();
            signup=(Button)findViewById(R.id.create_user);
-          signup.setBackgroundResource(R.drawable.signup_tabindicator);
+
         signIn=(Button)findViewById(R.id.login_user);
         signIn.setBackgroundResource(R.drawable.tab_indicator);
 
@@ -42,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), Register_user.class));
+            }
+        });
+
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Login_user.class));
             }
         });
 
